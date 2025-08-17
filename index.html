@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday MJ ?? ??</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: linear-gradient(to bottom, #ffe0e9, #fffdfd);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5em;
+      margin-top: 40px;
+      color: #d6336c;
+    }
+
+    .message, .timeline, .countdown {
+      max-width: 600px;
+      padding: 20px;
+      font-size: 1.2em;
+      line-height: 1.6;
+      background: #ffffffcc;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      margin: 20px;
+    }
+
+    .photo {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #f8b5c1;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    audio {
+      display: none;
+    }
+
+    .countdown {
+      position: relative;
+      border: 2px dashed #e38ba1;
+    }
+
+    .countdown::before,
+    .countdown::after {
+      content: "??";
+      position: absolute;
+      font-size: 1.5em;
+      top: 10px;
+    }
+
+    .countdown::before { left: 10px; }
+    .countdown::after { right: 10px; }
+
+    .popup-box {
+      background: #ffe9f1;
+      border: 2px solid #f8b5c1;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .popup-box h4 {
+      margin-top: 0;
+      color: #d6336c;
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.6em;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Happy Birthday MJ ?? ??</h1>
+
+  <img src="mj-photo.jpg" alt="MJ" class="photo">
+
+  <div class="message">
+    <p>To the soul that makes time feel slow and every silence feel full</p>
+    <p>Happy Birthday, MJ. You dont just exist you shine. With your calm, your beauty, your voice that settles storms you have become a part of my every heartbeat.</p>
+    <p>To your happiness, your hopes, and the tranquility you deserve. May this day give you back even a fraction of what your presence gives to the world.</p>
+    <p> Forever yours</p>
+  </div>
+
+  <div class="message">
+    <h3>WHO IS MJ TO ME ??</h3>
+    <p>MJ... you're not just someone I met, you're someone I felt. The way you speak so softly, the calmness in your voice, the way you carry yourself without even trying it's all become a part of how I see beauty now.</p>
+    <p>You have this gentle stillness in you, and I swear, in that stillness I feel the safest. You don't need to be loud or big to take space in my heart you already did, in the quietest way possible.</p>
+    <p>Everything about you your eyes, the way you talk, even the silence it feels like peace. You're not just pretty, you're graceful. You're not just smart, you're thoughtful. You dont rush anything, and somehow that slowness made me stop and feel things again.</p>
+    <p>You are the kind of person I did not know I needed until I met you. And now, even in the tiniest moments, I find you in my thoughts. You're a presence that never really leaves.</p>
+  </div>
+
+  <div class="timeline popup-box">
+    <h4>?? March 14, 2025</h4>
+    <p>We started talking. I didn't know then that you'd become this important to me.</p>
+
+    <h4> First Call</h4>
+    <p>I still remember your voice, soft, calm, unforgettable. You did not even try you just left a mark.</p>
+
+    <h4>?? Those Silences</h4>
+    <p>Even when you say nothing, I feel everything. That comfort... it's rare.</p>
+
+    <h4>?? And Now</h4>
+    <p>It is amazing how countless little things remind me of you throughout the day...</p>
+
+    <h4 id="daysSince"></h4>
+  </div>
+
+  <div class="countdown">
+    <h3>Countdown to Your Birthday ??</h3>
+    <p id="birthdayCountdown">Loading...</p>
+  </div>
+
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/08/audio_9b9f753100.mp3?filename=birthday-9603.mp3" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
+
+  <footer>
+    ©? 2025 | Made for MJ with all my heart
+  </footer>
+
+  <script>
+    // ?? Timeline Counter
+    const startDate = new Date("March 14, 2025");
+    const now = new Date();
+    const diffDays = Math.floor((now - startDate) / (1000 * 60 * 60 * 24));
+    document.getElementById("daysSince").innerText = `It's been ${diffDays} days with you and each one meant something... ??`;
+
+    // ?? Live Countdown
+    function updateCountdown() {
+      const now = new Date();
+      let bday = new Date(now.getFullYear(), 7, 18, 0, 0, 0); // August 18
+      if (now > bday) bday.setFullYear(now.getFullYear() + 1);
+
+      const diff = bday - now;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("birthdayCountdown").innerText =
+        `${days}d ${hours}h ${minutes}m ${seconds}s left until your birthday ??`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
+</html>
